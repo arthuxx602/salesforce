@@ -4,13 +4,27 @@ spring:
       client:
         registration:
           auth0:
-            client-id: 9abzTdA5XkDOckjdMSqK9RuRDZGR4uUN
-            client-secret: nPmuLWKmuXmWF9VgHxzUuXDXElLK1JUrbjuxG8ZB6xsFUvnXaqGZNv_otnpANxtZ
+            client-id: K2M4MOFyClCnnHL4pDAs3GMTn9GiUlTD
+            client-secret: p8M_TyUzqJLrx-w-q96jSHOmd445tWkfk1te1wzxI9Oqmb_dXVLHox8x0QhT0sp5
             scope:
               - openid
               - profile
               - email
         provider:
           auth0:
-            # trailing slash is important!
-            issuer-uri: https://dev-rgqek402.us.auth0.com/
+            # trailing slash is important
+            issuer-uri: https://dev-gc8jjvvs.us.auth0.com/
+
+  datasource:
+    password: Arthur.trin6025893
+    url: jdbc:postgresql://db.xdpzbcnhsqrjqhdtmyqg.supabase.co:5432/postgres
+    username: postgres
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  mvc:
+    format:
+      date: yyyy-MM-dd

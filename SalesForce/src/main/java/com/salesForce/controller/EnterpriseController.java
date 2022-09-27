@@ -1,10 +1,15 @@
 package com.salesForce.controller;
 
+import com.salesForce.entity.Employee;
 import com.salesForce.entity.Enterprise;
 import com.salesForce.entity.MovimientoDinero;
+import com.salesForce.service.EmployeeService;
 import com.salesForce.service.EnterpriseService;
 import com.salesForce.service.EnterpriseService;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
@@ -18,6 +23,11 @@ public class EnterpriseController {
     @Autowired
     EnterpriseService enterpriseService;
 
+    @Autowired
+    EmployeeService employeeService;
+
+
+
     // El sistema devuelve responses 200 en la ruta /enterprises con los siguientes verbos: |GET|POST|
 
     // Consulta todas las empresas
@@ -26,6 +36,12 @@ public class EnterpriseController {
         List<Enterprise> enterprises = new ArrayList<Enterprise>();
         return enterpriseService.findEnterprises();
     }
+
+
+
+
+
+
 
     // Crea una empresa
     @PostMapping("/enterprises")

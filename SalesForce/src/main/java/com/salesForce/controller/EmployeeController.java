@@ -3,6 +3,9 @@ package com.salesForce.controller;
 import com.salesForce.entity.Employee;
 import com.salesForce.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.core.oidc.user.OidcUser;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,6 +30,9 @@ public class EmployeeController {
         List<Employee> employee = employeeService.consultarEmpleados();
         return employee;
     }
+
+
+
 
     // El sistema devuelve responses 200 en la ruta /enterprises/[id] con los siguientes verbos: |GET|PATCH|DELETE|
 
